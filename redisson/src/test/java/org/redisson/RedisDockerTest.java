@@ -53,7 +53,7 @@ public class RedisDockerTest {
     }
 
     static {
-        REDIS.start();
+//        REDIS.start();
         Config config = createConfig();
         redisson = Redisson.create(config);
 
@@ -79,7 +79,9 @@ public class RedisDockerTest {
         Config config = new Config();
         config.setProtocol(protocol);
         config.useSingleServer()
-                .setAddress("redis://127.0.0.1:" + container.getFirstMappedPort());
+//                .setAddress("redis://127.0.0.1:" + container.getFirstMappedPort());
+                .setAddress("redis://127.0.0.1:6379")
+                .setPassword("123456");
         return config;
     }
 
